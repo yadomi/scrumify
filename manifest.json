@@ -10,7 +10,7 @@
       "matches": [
         "*://trello.com/*"
         ],
-      "js": ["inject.js"],
+      "js": ["/dist/inject.js"],
       "css": ["inject.css"]
     }
   ]
