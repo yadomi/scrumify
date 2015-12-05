@@ -1,0 +1,13 @@
+{
+  "name": "scrumify",
+  "version": "1.0.0",
+  "description": "Add scrum to Trello",
+  "devDependencies": {
+
+  },
+  "scripts": {
+    "build": "make"
+  },
+  "author": "Felix Yadomi <felix.yadomi@gmail.com>",
+  "license": "ISC"
+}
