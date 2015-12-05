@@ -8,6 +8,7 @@ BUILD_CSS := dist/inject.min.css
 
 UGLIFYJS := ./node_modules/uglify-js/bin/uglifyjs
 BABEL 	 := ./node_modules/babel-cli/bin/babel.js
+RELOADER := ./node_modules/chrome-extensions-reloader/bin/chrome-extensions-reloader --single-run
 
 all: $(BUILD_JS) $(BUILD_CSS)
 
@@ -16,6 +17,7 @@ all: $(BUILD_JS) $(BUILD_CSS)
 
 $(BUILD_JS): $(LIBS) /tmp/inject.js
 	$(UGLIFYJS) --compress --mangle -- $^ > $(BUILD_JS)
+	$(RELOADER)
 
 $(BUILD_CSS): $(SOURCE_CSS)
 	minify inject.css > dist/inject.min.css
