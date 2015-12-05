@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+
+  "name": "Labelizello",
+  "description": "This extension change the background of trello card to match labels",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://trello.com/*"
+        ],
+      "js": ["inject.js"],
+      "css": ["inject.css"]
+    }
+  ]
+}
