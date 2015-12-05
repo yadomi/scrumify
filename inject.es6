@@ -11,9 +11,9 @@ const updateCardsPoints = _.throttle(() => {
         const cardsTitle = Array.prototype.slice.call(list.querySelectorAll('.list-card-title'));
 
         const cardPoints = cardsTitle.map( element => {
-            const rawTitle = cacheCardTitle(element);
-            updateCardBadge(element);
-            return getCardsPoints(rawTitle);
+            const points = getCardsPoints(cacheCardTitle(element));
+            updateCardBadge(element.parentElement, points);
+            return points;
         });
 
         const totalPoints = cardPoints.reduce( (sum, points) => {
@@ -26,7 +26,7 @@ const updateCardsPoints = _.throttle(() => {
         });
 
         const listHeader = list.parentElement.querySelector('.list-header');
-        updateListHeader(listHeader, totalPoints);
+        updateListCounter(listHeader, totalPoints);
 
     });
 
@@ -45,18 +45,29 @@ const cacheCardTitle = e => {
     return e.dataset.rawTitle;
 };
 
-const updateCardBadge = function(title) {
-  // const badges = title.parentElement.querySelector('.badges');
-  // add badge to cards
+const updateCardBadge = (card, points) => {
+    var badge = card.querySelector('.scrumify-cardBadge');
+    if(!badge) badge = appendBadgeToCard(card);
+    badge.innerHTML = `
+        <span class="scrumify-cardBadge-estimated">${points.estimated}</span>
+        <span class="scrumify-cardBadge-consumed">${points.consumed}</span>`;
 };
 
-const updateListHeader = (header, points) => {
+const appendBadgeToCard = card => {
+    const badges = document.createElement('div');
+    const parent = card.querySelector('.badges');
+    badges.classList.add('badge', 'scrumify-cardBadge');
+    parent.insertBefore(badges, parent.firstChild);
+    return badges;
+};
+
+const updateListCounter = (header, points) => {
     var counter = header.querySelector('.cards-counter');
-    if (!counter) counter = appendCounterToHeader(header);
+    if (!counter) counter = appendCounterToList(header);
     counter.innerText = points.consumed + ' / ' + points.estimated;
 };
 
-const appendCounterToHeader = header => {
+const appendCounterToList = header => {
     var counter = document.createElement('div');
     counter.classList.add('cards-counter');
     header.insertBefore(counter, header.querySelector('list-header-name'));

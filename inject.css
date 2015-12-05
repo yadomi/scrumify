@@ -5,3 +5,16 @@
   line-height: 18px;
   margin: 1px 0px 0px;
 }
+
+.scrumify-cardBadge-consumed, .scrumify-cardBadge-estimated {
+  padding: 0 4px;
+  background: #0077C2;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+.scrumify-cardBadge-consumed {
+  opacity: 0.6;
+}
