@@ -22,7 +22,7 @@ var updateCardsPoints = _.throttle(function() {
             return sum;
         }, {
             estimated: 0,
-            consumed: 0
+            consumed: 0,
         });
 
         var listHeader = list.parentElement.querySelector('.list-header');
