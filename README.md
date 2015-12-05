@@ -6,6 +6,8 @@ Introduction:
 
 This chrome extension allow you to add scrum point to any [Trello](http://trello.com) board
 
+![image](https://dl.dropboxusercontent.com/u/6888621/htdocs/demo_scrumify.gif)
+
 Installation:
 -------------
 
