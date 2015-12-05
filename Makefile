@@ -10,6 +10,8 @@ UGLIFYJS := ./node_modules/uglify-js/bin/uglifyjs
 BABEL 	 := ./node_modules/babel-cli/bin/babel.js
 RELOADER := ./node_modules/chrome-extensions-reloader/bin/chrome-extensions-reloader
 
+PACKAGE_NAME := Scrumify-$(shell npm -j version | jq -r .scrumify)-$(shell git rev-parse --short HEAD).crx
+
 all: $(BUILD_JS) $(BUILD_CSS) reload
 
 /tmp/inject.js: $(SOURCE_JS)
@@ -26,3 +28,7 @@ clean:
 
 reload:
 	$(RELOADER) --single-run
+
+package:
+	mkdir -p packages/
+	zip -r packages/$(PACKAGE_NAME) dist manifest.json
