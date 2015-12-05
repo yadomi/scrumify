@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Add scrum to Trello",
   "devDependencies": {
-
+    "babel-cli": "^6.3.13",
+    "uglify-js": "^2.6.1"
   },
   "scripts": {
     "build": "make"
