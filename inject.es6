@@ -11,19 +11,19 @@ var updateCardsPoints = _.throttle(function() {
         var cardsTitle = Array.prototype.slice.call(list.querySelectorAll('.list-card-title'));
 
         var cardPoints = cardsTitle.map(function(element){
-          var rawTitle = cacheCardTitle(element);
-          updateCardBadge(element);
-          return getCardsPoints(rawTitle);
-      });
+            var rawTitle = cacheCardTitle(element);
+            updateCardBadge(element);
+            return getCardsPoints(rawTitle);
+        });
 
         var totalPoints = cardPoints.reduce(function(sum, points) {
-          sum.estimated += points.estimated;
-          sum.consumed  += points.consumed;
-          return sum;
-      }, {
-        estimated: 0,
-        consumed: 0
-    });
+            sum.estimated += points.estimated;
+            sum.consumed  += points.consumed;
+            return sum;
+        }, {
+            estimated: 0,
+            consumed: 0
+        });
 
         var listHeader = list.parentElement.querySelector('.list-header');
         updateListHeader(listHeader, totalPoints);
@@ -89,11 +89,11 @@ var GlobalObserver = function(mutations) {
 
     mutations.forEach(function(mutation){
         if(mutation.target && mutation.target.classList) {
-          var trigger = !!triggerClass.filter(function(c){
-            return mutation.target.classList.contains(c);
-        }).length;
-          if(trigger) updateCardsPoints();
-      }
+            var trigger = !!triggerClass.filter(function(c){
+                return mutation.target.classList.contains(c);
+            }).length;
+            if(trigger) updateCardsPoints();
+        }
     });
 
 };
