@@ -1,3 +1,6 @@
+//     Rugby Chrome Extension v1.0
+//     http://github.com/yadomi/rugby
+
 var REGEX_CONSUMED =  /\((\d*)\)/
 var REGEX_ESTIMATED = /\[(\d*)\]/
 
@@ -43,7 +46,7 @@ var cacheCardTitle = function(e) {
 }
 
 var updateCardBadge = function(title) {
-  var badges = title.parentElement.querySelector('.badges');
+  // var badges = title.parentElement.querySelector('.badges');
   // add badge to cards
 }
 
