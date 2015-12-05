@@ -21,3 +21,6 @@ $(BUILD_JS): $(LIBS) /tmp/inject.js
 
 $(BUILD_CSS): $(SOURCE_CSS)
 	minify inject.css > dist/inject.min.css
+
+clean:
+	rm /tmp/inject.js
