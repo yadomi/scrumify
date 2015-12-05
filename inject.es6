@@ -62,14 +62,14 @@ const appendBadgeToCard = card => {
 };
 
 const updateListCounter = (header, points) => {
-    var counter = header.querySelector('.cards-counter');
+    var counter = header.querySelector('.scrumify-listCounter');
     if (!counter) counter = appendCounterToList(header);
     counter.innerText = points.consumed + ' / ' + points.estimated;
 };
 
 const appendCounterToList = header => {
     var counter = document.createElement('div');
-    counter.classList.add('cards-counter');
+    counter.classList.add('scrumify-listCounter');
     header.insertBefore(counter, header.querySelector('list-header-name'));
     return counter;
 };
