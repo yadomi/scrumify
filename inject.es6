@@ -10,10 +10,16 @@ const updateCardsPoints = _.throttle(() => {
 
         const cardsTitle = Array.prototype.slice.call(list.querySelectorAll('.list-card-title'));
 
-        const cardPoints = cardsTitle.map( element => {
-            const points = getCardsPoints(cacheCardTitle(element));
+        const cardPoints = [];
+        cardsTitle.forEach( element => {
+            let title, points;
+
+            title = cacheCardTitle(element);
+            if(!title) return;
+
+            points = getCardsPoints(title);
             updateCardBadge(element.parentElement, points);
-            return points;
+            cardPoints.push(points);
         });
 
         const totalPoints = cardPoints.reduce( (sum, points) => {
