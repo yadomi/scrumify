@@ -6,7 +6,7 @@
     "babel-cli": "^6.3.13",
     "babel-plugin-uglify": "^1.0.2",
     "babel-preset-es2015": "^6.3.13",
-    "chrome-extensions-reloader": "^1.0.1",
+    "chrome-extensions-reloader": "^1.1.0",
     "eslint": "^1.10.3",
     "uglify-js": "^2.6.1"
   },

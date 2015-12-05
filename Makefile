@@ -27,7 +27,7 @@ clean:
 	rm /tmp/inject.js
 
 reload:
-	$(RELOADER) --single-run
+	$(RELOADER) --single-run --silent-fail
 
 package:
 	mkdir -p packages/
