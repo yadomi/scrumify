@@ -68,6 +68,7 @@ const appendBadgeToCard = card => {
 };
 
 const updateListCounter = (header, points) => {
+    if (points.consumed + points.estimated === 0) return;
     var counter = header.querySelector('.scrumify-listCounter');
     if (!counter) counter = appendCounterToList(header);
     counter.innerHTML = `${points.estimated} / <span>${points.consumed}</span>`;
