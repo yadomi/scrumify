@@ -1,5 +1,6 @@
 {
   "name": "scrumify",
+  "private": true,
   "version": "1.0.0",
   "description": "Add scrum to Trello",
   "devDependencies": {
@@ -9,6 +10,10 @@
     "chrome-extensions-reloader": "^1.1.0",
     "eslint": "^1.10.3",
     "uglify-js": "^2.6.1"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/yadomi/scrumify"
   },
   "scripts": {
     "build": "make"
